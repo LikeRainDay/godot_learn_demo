@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3032s6igqryh"]
+
+[ext_resource type="PackedScene" uid="uid://c11sgca3mhnwe" path="res://maps/main_map.tscn" id="1_42y52"]
+[ext_resource type="Script" path="res://scripts/global.gd" id="1_rhegw"]
+[ext_resource type="PackedScene" uid="uid://cwetbyowhaj5o" path="res://assets/characters/player/player.tscn" id="2_ej8d7"]
+[ext_resource type="PackedScene" uid="uid://bp77jv3h1kkeu" path="res://assets/characters/enemy/enemy.tscn" id="3_3jrhg"]
+
+[node name="MainScene" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rhegw")
+
+[node name="TileMap" parent="." instance=ExtResource("1_42y52")]
+
+[node name="Player" parent="." instance=ExtResource("2_ej8d7")]
+position = Vector2(235, 56)
+
+[node name="Enemy" parent="." instance=ExtResource("3_3jrhg")]
+position = Vector2(120, 62)
+
+[node name="collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(1, 0, 1153, 0, 1153, 657, 1, 657, -1, -8, -12, 672, 1168, 673, 1164, -35, 0, -2)
